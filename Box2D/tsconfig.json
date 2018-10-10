@@ -1,16 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "ES2016",
-    "module": "system",
-    "strict": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "inlineSourceMap": true,
-    "outDir": "../dist/Box2D"
-  },
-  "include": [
-    "**/*.ts"
-  ]
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "outDir": "../dist",
+        "declaration": true
+    },
+    "include": ["**/*.ts"]
 }
