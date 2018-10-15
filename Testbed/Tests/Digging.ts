@@ -23,6 +23,7 @@ import * as testbed from "Testbed";
 
 export class Digging extends testbed.Test {
     public drawing: boolean = false;
+    public brush: number = 0.05;
 
     public destroyed = 0;
     constructor() {
@@ -42,8 +43,8 @@ export class Digging extends testbed.Test {
             shape.CreateLoop(vertices, 4);
             ground.CreateFixture(shape, 0.0);
         }
-        console.log(window.screen.availHeight / 50000);
-        this.m_particleSystem.SetRadius(window.screen.availHeight / 10000); // HACK: increase particle radius
+        this.brush = 50 / window.screen.availHeight;
+        this.m_particleSystem.SetRadius(this.brush); // HACK: increase particle radius
         this.m_particleSystem.SetDamping(0.2);
 
         // {
@@ -120,7 +121,7 @@ export class Digging extends testbed.Test {
         if (this.drawing) {
             const shape = new box2d.b2CircleShape();
             shape.m_p.Copy(p);
-            shape.m_radius = 0.05;
+            shape.m_radius = this.brush;
             ///  b2Transform xf;
             ///  xf.SetIdentity();
             const xf = box2d.b2Transform.IDENTITY;
