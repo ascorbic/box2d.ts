@@ -45,12 +45,6 @@ export class PhysicsData {
         [key: string]: ShapeDef[];
     } = {};
 
-    //
-    // bodytype:
-    //  b2_staticBody
-    //  b2_kinematicBody
-    //  b2_dynamicBody
-
     public createBody(
         name: string,
         world: b2World,
@@ -105,6 +99,7 @@ export class PhysicsData {
 
     public constructor() {
         const ptm = this.ptm_ratio;
+
         this.dict.bone = [
             [
                 // density, friction, restitution

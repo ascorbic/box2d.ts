@@ -128,53 +128,53 @@ export class Cake extends testbed.Test {
         //     );
         // }
 
-        {
-            const bd = new box2d.b2BodyDef();
-            bd.type = box2d.b2BodyType.b2_dynamicBody;
-            const body = this.m_world.CreateBody(bd);
-            const shape = new box2d.b2EdgeShape();
-            shape.Set(new box2d.b2Vec2(0, 2), new box2d.b2Vec2(0.1, 2.1));
-            body.CreateFixture(shape, 1);
-            ///  b2MassData massData = {0.1f, 0.5f * (shape.m_vertex1 + shape.m_vertex2), 0.0f};
-            const massData = new box2d.b2MassData();
-            massData.mass = 0.1;
-            massData.center.x = 0.5 * shape.m_vertex1.x + shape.m_vertex2.x;
-            massData.center.y = 0.5 * shape.m_vertex1.y + shape.m_vertex2.y;
-            massData.I = 0.0;
-            body.SetMassData(massData);
-        }
+        // {
+        //     const bd = new box2d.b2BodyDef();
+        //     bd.type = box2d.b2BodyType.b2_dynamicBody;
+        //     const body = this.m_world.CreateBody(bd);
+        //     const shape = new box2d.b2EdgeShape();
+        //     shape.Set(new box2d.b2Vec2(0, 2), new box2d.b2Vec2(0.1, 2.1));
+        //     body.CreateFixture(shape, 1);
+        //     ///  b2MassData massData = {0.1f, 0.5f * (shape.m_vertex1 + shape.m_vertex2), 0.0f};
+        //     const massData = new box2d.b2MassData();
+        //     massData.mass = 0.1;
+        //     massData.center.x = 0.5 * shape.m_vertex1.x + shape.m_vertex2.x;
+        //     massData.center.y = 0.5 * shape.m_vertex1.y + shape.m_vertex2.y;
+        //     massData.I = 0.0;
+        //     body.SetMassData(massData);
+        // }
 
-        {
-            const bd = new box2d.b2BodyDef();
-            bd.type = box2d.b2BodyType.b2_dynamicBody;
-            const body = this.m_world.CreateBody(bd);
-            const shape = new box2d.b2EdgeShape();
-            shape.Set(new box2d.b2Vec2(0.3, 2.0), new box2d.b2Vec2(0.4, 2.1));
-            body.CreateFixture(shape, 1);
-            ///  b2MassData massData = {0.1f, 0.5f * (shape.m_vertex1 + shape.m_vertex2), 0.0f};
-            const massData = new box2d.b2MassData();
-            massData.mass = 0.1;
-            massData.center.x = 0.5 * shape.m_vertex1.x + shape.m_vertex2.x;
-            massData.center.y = 0.5 * shape.m_vertex1.y + shape.m_vertex2.y;
-            massData.I = 0.0;
-            body.SetMassData(massData);
-        }
+        // {
+        //     const bd = new box2d.b2BodyDef();
+        //     bd.type = box2d.b2BodyType.b2_dynamicBody;
+        //     const body = this.m_world.CreateBody(bd);
+        //     const shape = new box2d.b2EdgeShape();
+        //     shape.Set(new box2d.b2Vec2(0.3, 2.0), new box2d.b2Vec2(0.4, 2.1));
+        //     body.CreateFixture(shape, 1);
+        //     ///  b2MassData massData = {0.1f, 0.5f * (shape.m_vertex1 + shape.m_vertex2), 0.0f};
+        //     const massData = new box2d.b2MassData();
+        //     massData.mass = 0.1;
+        //     massData.center.x = 0.5 * shape.m_vertex1.x + shape.m_vertex2.x;
+        //     massData.center.y = 0.5 * shape.m_vertex1.y + shape.m_vertex2.y;
+        //     massData.I = 0.0;
+        //     body.SetMassData(massData);
+        // }
 
-        {
-            const bd = new box2d.b2BodyDef();
-            bd.type = box2d.b2BodyType.b2_dynamicBody;
-            const body = this.m_world.CreateBody(bd);
-            const shape = new box2d.b2EdgeShape();
-            shape.Set(new box2d.b2Vec2(-0.3, 2.1), new box2d.b2Vec2(-0.2, 2.0));
-            body.CreateFixture(shape, 1);
-            ///  b2MassData massData = {0.1f, 0.5f * (shape.m_vertex1 + shape.m_vertex2), 0.0f};
-            const massData = new box2d.b2MassData();
-            massData.mass = 0.1;
-            massData.center.x = 0.5 * shape.m_vertex1.x + shape.m_vertex2.x;
-            massData.center.y = 0.5 * shape.m_vertex1.y + shape.m_vertex2.y;
-            massData.I = 0.0;
-            body.SetMassData(massData);
-        }
+        // {
+        //     const bd = new box2d.b2BodyDef();
+        //     bd.type = box2d.b2BodyType.b2_dynamicBody;
+        //     const body = this.m_world.CreateBody(bd);
+        //     const shape = new box2d.b2EdgeShape();
+        //     shape.Set(new box2d.b2Vec2(-0.3, 2.1), new box2d.b2Vec2(-0.2, 2.0));
+        //     body.CreateFixture(shape, 1);
+        //     ///  b2MassData massData = {0.1f, 0.5f * (shape.m_vertex1 + shape.m_vertex2), 0.0f};
+        //     const massData = new box2d.b2MassData();
+        //     massData.mass = 0.1;
+        //     massData.center.x = 0.5 * shape.m_vertex1.x + shape.m_vertex2.x;
+        //     massData.center.y = 0.5 * shape.m_vertex1.y + shape.m_vertex2.y;
+        //     massData.I = 0.0;
+        //     body.SetMassData(massData);
+        // }
 
         for (let i = 0; i < 10; i++) {
             const body = physicsData.createBody(

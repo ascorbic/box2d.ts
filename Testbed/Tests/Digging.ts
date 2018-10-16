@@ -23,7 +23,7 @@ import * as testbed from "Testbed";
 
 export class Digging extends testbed.Test {
     public drawing: boolean = false;
-    public brush: number = 0.05;
+    public brush: number;
 
     public destroyed = 0;
     constructor() {
@@ -35,47 +35,36 @@ export class Digging extends testbed.Test {
 
             const shape = new box2d.b2ChainShape();
             const vertices = [
-                new box2d.b2Vec2(-2, 0),
-                new box2d.b2Vec2(2, 0),
-                new box2d.b2Vec2(2, 0.1),
-                new box2d.b2Vec2(-2, 0.1),
+                new box2d.b2Vec2(-1.5, 0),
+                new box2d.b2Vec2(1.5, 0),
+                new box2d.b2Vec2(1.5, 0.1),
+                new box2d.b2Vec2(-1.5, 0.1),
             ];
             shape.CreateLoop(vertices, 4);
             ground.CreateFixture(shape, 0.0);
         }
-        this.brush = 50 / window.screen.availHeight;
+        this.brush = Math.max(50 / window.screen.availHeight, 0.06);
         this.m_particleSystem.SetRadius(this.brush); // HACK: increase particle radius
         this.m_particleSystem.SetDamping(0.2);
 
-        // {
-        //     const shape = new box2d.b2PolygonShape();
-        //     shape.SetAsBox(0.8, 1.0, new box2d.b2Vec2(-1.2, 1.01), 0);
-        //     const pd = new box2d.b2ParticleGroupDef();
-        //     pd.flags = testbed.Test.GetParticleParameterValue();
-        //     pd.shape = shape;
-        //     const group = this.m_particleSystem.CreateParticleGroup(pd);
-        //     if (pd.flags & box2d.b2ParticleFlag.b2_colorMixingParticle) {
-        //         this.ColorParticleGroup(group, 0);
-        //     }
-        // }
-
         {
             const shape = new box2d.b2PolygonShape();
-            shape.SetAsBox(2, 2);
+            shape.SetAsBox(1.5, 1.5);
             const pd = new box2d.b2ParticleGroupDef();
             // pd.flags = box2d.b2ParticleFlag.b2_elasticParticle;
             pd.groupFlags =
                 box2d.b2ParticleGroupFlag.b2_rigidParticleGroup |
                 box2d.b2ParticleGroupFlag.b2_solidParticleGroup;
-            pd.position.Set(0, 2);
+            pd.position.Set(0, 1.5);
             pd.shape = shape;
             pd.color.Set(128, 0, 0, 1);
-            this.m_particleSystem.CreateParticleGroup(pd);
+            const pg = this.m_particleSystem.CreateParticleGroup(pd);
+            // this.ColorParticleGroup(pg, 0);
         }
 
         {
             const shape = new box2d.b2CircleShape();
-            shape.m_p.Set(0, 3);
+            shape.m_p.Set(0, 2.25);
             shape.m_radius = 0.5;
             const pd = new box2d.b2ParticleGroupDef();
             // pd.flags = box2d.b2ParticleFlag.b2_springParticle;
@@ -92,7 +81,7 @@ export class Digging extends testbed.Test {
 
     public spawnWater() {
         const shape = new box2d.b2CircleShape();
-        shape.m_p.Set(0, 3.5);
+        shape.m_p.Set(0, 2.75);
         shape.m_radius = 0.1;
         const pd = new box2d.b2ParticleGroupDef();
         pd.shape = shape;
