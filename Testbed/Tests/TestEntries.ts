@@ -114,13 +114,14 @@ import { AntiPointy } from "./AntiPointy";
 import { CornerCase } from "./CornerCase";
 import { ParticleCollisionFilter } from "./ParticleCollisionFilter";
 import { EyeCandy } from "./EyeCandy";
+import { Cake } from "./Cake";
 // #endif
 
 export const g_testEntries: TestEntry[] = [
     // #if B2_ENABLE_PARTICLE
+    new TestEntry("Cake", Cake.Create),
     new TestEntry("Digging", Digging.Create),
     new TestEntry("Hoover", Hoover.Create),
-
     // new TestEntry("Sparky", Sparky.Create),
     // // #endif
 
