@@ -25,8 +25,16 @@ module.exports = {
                         experimentalWatchApi: true
                     }
                 }
+            },
+            {
+                test: /\.wasm$/,
+                type: "javascript/auto",
+                loader: "file-loader"
             }
         ]
+    },
+    node: {
+        fs: "empty"
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js"],
